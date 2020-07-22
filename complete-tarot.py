@@ -9,7 +9,6 @@ d = input("How many cards to draw?: ")
 
 draw_amnt = int(d)
 times = int(i)
-cn = 1
 
 #shuffling mechanic
 def shuffle(deck, times):
@@ -28,7 +27,7 @@ def draw(deck, draw_amnt):
 		selected_card = deck.pop(0)
 		reverse_check = random.randint(0,1)
 		if (reverse_check == 1):
-			print(selected_card[0] + selected_card[2])
+			print('Reversed ' + selected_card[0] + selected_card[2])
 		else:
 			print(selected_card[0] + selected_card[1])
 
@@ -129,6 +128,7 @@ shuffle(deck, times)
 
 draw(deck, draw_amnt)
 
+#OLD MECHANIC GRAVE YARD R.I.P.=--------------------------------------------
 
 #checking for reverses and printing
 #print('Past')
