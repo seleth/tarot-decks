@@ -1,13 +1,41 @@
 import random
+import os
 
-def shuffle(deck):
-	random.shuffle(deck)
-	random.shuffle(deck)
-	return deck
+os.system('clear')
+
+i = input("How many times to shuffle?: ")
+d = input("How many cards to draw?: ")
+
+
+draw_amnt = int(d)
+times = int(i)
+cn = 1
+
+#shuffling mechanic
+def shuffle(deck, times):
+	for y in range(0, times):
+		random.shuffle(deck)
+		print('Shuffled one more time')
+
+
+
+#drawing mechanic
+def draw(deck, draw_amnt):
+	cn = 1
+	for x in range(0, draw_amnt):
+		print('Card' + str(x))
+		cn += 1
+		selected_card = deck.pop(0)
+		reverse_check = random.randint(0,1)
+		if (reverse_check == 1):
+			print(selected_card[0] + selected_card[2])
+		else:
+			print(selected_card[0] + selected_card[1])
+
 
 
 #cards of the deck
-card = [
+card =[
 	('Ace of Wands: ', 'Creation, willpower, inspiration, desire', 'Lack of energy, lack of passion, boredom ', ''),
 	('Two of Wands: ', 'planning, making decisions, leaving home', 'Fear of change, playing safe, bad planning'),
 	('Three of Wands: ', 'Looking ahead, expansion, rapid growth', 'Obstacles, delays, frustration'),
@@ -54,7 +82,7 @@ card = [
 	('King of Swords: ', 'Head over heart, discipline, truth', 'Manipulative, cruel, weakness', ''),
 
 	('Ace of Pentacles: ', 'Opportunity, prosperity, new venture', 'Lost opportunity, missed chance, bad investment', ''),
-	('Two of Pentacles: ', 'Balancing decisions, priorities, adapting to change, '', ''),
+	('Two of Pentacles: ', 'Balancing decisions, priorities, adapting to change', '', ''),
 	('Three of Pentacles: ', 'Teamwork, collaboration, building', 'Lack of teamwork, disorganized, group conflict', ''),
 	('Four of Pentacles: ', 'Conservation, frugality, security', 'Greediness, stinginess, possessiveness', ''),
 	('Five of Pentacles: ', 'Need, poverty, insecurity', 'Recovery, charity, improvement', ''),
@@ -68,7 +96,7 @@ card = [
 	('Queen of Pentacles: ', 'Practicality, creature comforts, financial security', 'Self-centeredness, jealousy, smothering', ''),
 	('King of Pentacles: ', 'Abundance, prosperity, security', 'Greed, indulgence, sensuality', ''),
 
-	('0. The Fool: ', 'New beginnings, adventure, new challenges, oppourtunities that are often unplanned or unforseen', 'Missed oppourtunities, misadventure, unexpected problems, unrealistic goals, stupidity',  'Earth')
+	('0. The Fool: ', 'New beginnings, adventure, new challenges, oppourtunities that are often unplanned or unforseen', 'Missed oppourtunities, misadventure, unexpected problems, unrealistic goals, stupidity',  'Earth'),
 	('I. The Magician: ', 'Strength of Will, the ability to apply intellect, correct decisions, balance and harmony', 'Indecisiveness, lack of will power, weak intellect, arrogance, false knowledge', '(Aries)'),
 	('II. The High Priestess: ', 'Intuition, inspiration, revelation, psychic and artistic ability, hidden knowledge', 'Emotional unstability, hypocrisy, fickleness, narrow vision', '(Taurus'),
 	('III. The Empress: ', 'Wealth, abundance, fertility, growth, motherhood, pregnancy, physical creativity', 'Infertility, lack of creativity, poverty', '(Gemini)'),
@@ -92,36 +120,38 @@ card = [
 	('XXI. The World: ', 'Completion, reward, success, triumph, travel, liberation', 'Success yet to be won, fear of change or travel, over-attachment, lack of vision', 'Neptune')
 ]
 
+
 #setting deck
 deck = card.copy()
 
 #shuffling the deck
-shuffle(deck)
+shuffle(deck, times)
 
+draw(deck, draw_amnt)
 
 
 #checking for reverses and printing
-print('Past')
-Past = deck.pop(0)
-past_reverse = random.randint(0,1)
-if (past_reverse == 1):
-	print(Past[0] + Past[2])
-else:
-	print(Past[0] + Past[1])
+#print('Past')
+#Past = deck.pop(0)
+#past_reverse = random.randint(0,1)
+#if (past_reverse == 1):
+#	print(Past[0] + Past[2])
+#else:
+#	print(Past[0] + Past[1])
 
-print('Present')
-Present = deck.pop(0)
-present_reverse = random.randint(0,1)
-if (present_reverse == 1):
-	print(Present[0] + Present[2])
-else:
-	print(Present[0] + Present[1])
+#print('Present')
+#Present = deck.pop(0)
+#present_reverse = random.randint(0,1)
+#if (present_reverse == 1):
+#	print(Present[0] + Present[2])
+#else:
+#	print(Present[0] + Present[1])
 
-print('Future')
-Future = deck.pop(0)
-future_reverse = random.randint(0,1)
-if (future_reverse == 1):
-	print(Future[0] + Future[2])
-else:
-	print(Future[0] + Future[1])
+#print('Future')
+#Future = deck.pop(0)
+#future_reverse = random.randint(0,1)
+#if (future_reverse == 1):
+#	print(Future[0] + Future[2])
+#else:
+#	print(Future[0] + Future[1])
 
